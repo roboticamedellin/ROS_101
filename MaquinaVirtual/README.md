@@ -162,3 +162,7 @@ Procedemos con presionar en "Restart Now". Una vez aparezca el siguiente mensaje
 La máquina se reiniciará y podremos ingresar con el usuario y contraseña que préviamente asignamos.
 
 ![](./media/34.PNG)
+
+--
+
+Creado y editado por Alejandro Gómez (@aldajo92)
