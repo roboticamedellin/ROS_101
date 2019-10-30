@@ -1,1 +1,1 @@
-# Guías para empezar con ROS #
+# Guías para iniciar con ROS #
