@@ -26,6 +26,7 @@ Para poder trabajar con la Raspberry es necesario contar con una distribución d
 - Para Windows y Mac, se recomienda usar el software balenaEtcher el cual puede ser descargado de la página balena.io
 - Una vez instalado, ejecutar balenaEtcher y seleccionar la opción "Select image".
 ![](./media/01.PNG)
+- Insertar la tarjeta SD en en equipo, en balenaEtcher seleccionar boton "Select Target" y proceder con la instalación.
 
 ### Distribuciones Linux ###
 - Para usuarios mas experimentados recomendamos seguir la instalación de la [guia oficial](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md).
