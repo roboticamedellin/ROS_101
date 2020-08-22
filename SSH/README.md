@@ -1,5 +1,12 @@
 # Configuración SSH de la VM con Ubuntu MATE #
 
+## Requisitos ##
+- Tener instalado `VirtualBox`.
+- Tener instalada una version de `Ubuntu` en `VirtualBox`.
+- Tener acceso a una consola y una conexion a internet.
+
+(Para esta sección se usó como ejemplo en MAC, los mismos pasos son replicables para Windows usando la consola `PowerShell`, y en Linux usando bash).
+
 Una vez se tenga instalada la máquina virtual, configuramos la red de la misma entrando a la opción de configuración:
 
 ![](./media/01.PNG)
