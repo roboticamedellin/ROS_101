@@ -41,6 +41,11 @@ Para poder trabajar con la Raspberry es necesario contar con una distribución d
 
 
 ## Después de haber instalado y configurado el S.O ##
+Instalar pip (En caso de no tenerlo):
+```
+$ sudo apt install python-pip
+```
+
 Instalar Jupyterlab:
 ```
 $ pip install jupyterlab
