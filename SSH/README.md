@@ -135,3 +135,9 @@ Ir al navegador de nuestro equipo y verificar el funcionamiento:
 ```
 localhost:8888
 ```
+
+## Soporte para python3 ##
+```
+$ python3 -m pip install ipykernel
+$ python3 -m ipykernel install --user
+```
