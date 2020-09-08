@@ -170,7 +170,7 @@ Agregar lo siguiente:
 ARDUINO_DIR = /usr/share/arduino
 # Puerto
 ARDUINO_PORT = /dev/ttyACM*
-# Tipo de tarjeta. Mas información en: https://blabla.com
+# Tipo de tarjeta. Mas información (usando este archivo): make show_boards
 BOARD_TAG = uno
 # Carpeta de librerias
 USER_LIB_PATH = /home/pi/arduinoLibraries
@@ -195,7 +195,7 @@ void loop(){
 }
 ```
 
-Compilar y cargar con el comando:
+Compilar y cargar a la tarjeta con el comando:
 ```
 $ sudo make upload
 ```
