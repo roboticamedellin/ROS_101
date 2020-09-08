@@ -41,6 +41,12 @@ Para poder trabajar con la Raspberry es necesario contar con una distribución d
 
 
 ## Después de haber instalado y configurado el S.O ##
+
+Actualizar el S.O (para evitar problemas con python 3.5):
+```
+$ sudo apt upgrade
+```
+
 Instalar pip (En caso de no tenerlo):
 ```
 $ sudo apt install python-pip
@@ -72,7 +78,7 @@ $ nano /home/pi/.jupyter/jupyter_notebook_config.py
 Descomentar y configurar las siguientes opciones (buscarlas en el orden alfabético):
 ```
 - c.NotebookApp.allow_origin = '*'
-- c.NotebookApp.ip = ‘*’
+- c.NotebookApp.ip = ‘raspberrypi.local’ # Poner el hostname
 - c.NotebookApp.open_browser = False
 ```
 
@@ -80,3 +86,48 @@ Con esta configuración, es necesario levantar jupyterlab manualmente:
 ```
 $ jupyter-lab
 ```
+
+### Iniciar Jupyter-Lab con el S.O ###
+
+Crear el archivo de servicio:
+```
+sudo touch /etc/systemd/system/jupyter.service
+sudo chmod 644 /etc/systemd/system/jupyter.service
+```
+
+Open an editor with sudo nano /etc/systemd/system/jupyter.service and copy/paste the following text
+
+Abrir con el editor `sudo nano /etc/systemd/system/jupyter.service` y copiar/pegar el siguiente texto. (Asegurarse bien de los valores en `User`, `Group`, y `WorkingDirectory`):
+
+```
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/jupyter lab
+User=pi
+Group=pi
+WorkingDirectory=/home/pi
+Restart=always
+RestartSec=10
+#KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Luego el servicio puede ser manualmente configurado con los siguientes comandos:
+
+```
+$ sudo systemctl start jupyter.service
+$ sudo systemctl status jupyter.service
+$ sudo systemctl stop jupyter.service # Solo en caso de ser necesario
+```
+
+Despues, se habilita el servicio para correr con el arranque del S.O:
+```
+$ sudo systemctl enable jupyter.service 
+```
+
+Reiniciar la Rapsberry, e ingresar en el navegador a la url `raspberrypi.local:8888`. Requerira del password previamente configurado para acceder.
