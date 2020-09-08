@@ -40,7 +40,7 @@ Para poder trabajar con la Raspberry es necesario contar con una distribución d
 - Si cuenta con configuracion ethernet, realizar la siguiente configuracion siguiendo el siguente video tutorial: [Configuracion Wifi](https://www.youtube.com/watch?v=-vb9YOKQVeY)
 
 
-## Después de haber instalado y configurado el S.O ##
+## Instalar JupyterLab ##
 
 Actualizar el S.O (para evitar problemas con python 3.5):
 ```
@@ -117,7 +117,7 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
-Luego el servicio puede ser manualmente configurado con los siguientes comandos:
+Luego el servicio puede ser manualmente manipulado con los siguientes comandos:
 
 ```
 $ sudo systemctl start jupyter.service
@@ -131,3 +131,72 @@ $ sudo systemctl enable jupyter.service
 ```
 
 Reiniciar la Rapsberry, e ingresar en el navegador a la url `raspberrypi.local:8888`. Requerira del password previamente configurado para acceder.
+
+## Programar Arduino con RaspberryPi desde consola ##
+El proposito de esta parte es poder programar y hacer un debug correcto con el microcontrolador sugerido para la arquitectura con la que se va a trabajar, en este caso la placa Arduino.
+
+Instalar `minicom` y `arduino-mk`: 
+
+```
+sudo apt install minicom arduino-mk
+```
+
+Verificar la carpeta `arduino` en la ruta `/usr/share/arduino/`, con el comando:
+
+```
+$ cd /usr/share/arduino/
+$ # luego volver a la carpeta home
+$ cd
+```
+
+crear la carpeta `arduinoLibraries` donde almacenaremos todas las librerias que encontremos en repositorios y que deseemos instalar a futuro, en la carpeta `/home/pi`:
+
+```
+$ mkdir ~/arduinoLibraries
+```
+
+En cualquier parte, podemos crear un archivo con extensión `.ino` para poder cargarlo a la tarjeta y para ello es necesario crear un archivo `Makefile` para especificar los parametros de compilación:
+
+Crear el archivo Makefile:
+
+```
+$ nano Makefile
+```
+
+Agregar lo siguiente:
+
+```
+# Carpeta Arduino
+ARDUINO_DIR = /usr/share/arduino
+# Puerto
+ARDUINO_PORT = /dev/ttyACM*
+# Tipo de tarjeta. Mas información en: https://blabla.com
+BOARD_TAG = uno
+# Carpeta de librerias
+USER_LIB_PATH = /home/pi/arduinoLibraries
+# Para agregar librerias al proyecto, descomentar y especificar en la siguiente variable
+# ARDUINO_LIBS = /zumo /Wire
+
+
+include /usr/share/arduino/Arduino.mk
+
+```
+
+Podemos ahora probar con un simple HelloWorld con el archivo `hello.ino`:
+
+```
+void setup(){
+    Serial.begin(9600);
+}
+
+void loop(){
+    Serial.println("Hello world");
+    delay(1000);
+}
+```
+
+Compilar y cargar con el comando:
+```
+$ sudo make upload
+```
+
