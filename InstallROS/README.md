@@ -20,3 +20,5 @@ Luego agregar el archivo `.vdi` en el dialogo que se nos presenta:
 Una vez agregado, asegurarse que la casilla para la importar los drivers NO este seleccionada:
 
 ![](./media/image03.png)
+
+El password es: `udacity-nd`
