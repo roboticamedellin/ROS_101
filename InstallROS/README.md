@@ -22,3 +22,7 @@ Una vez agregado, asegurarse que la casilla para la importar los drivers NO este
 ![](./media/image03.png)
 
 El password es: `udacity-nd`
+
+## Usar un entorno en THE-CONSTRUCT ##
+
+https://app.theconstructsim.com/#/
