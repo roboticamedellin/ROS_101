@@ -6,7 +6,7 @@ Descargar la version de ROS que nos ofrece Udacity:
 
 Descomprimir el archivo .zip, Luego realizar los siguientes pasos para importar la Maquina virtual:
 
-- Contar con la ultima version de VirtualBox.
+- Contar con la ultima versión de [VirtualBox](https://www.virtualbox.org/).
 - Descomprimir la maquina virtual previamente descargada.
 - Abrir VirtualBox.
 - Seleccionar en (File -> Import Applience) o (Archivo -> Importar Servicio Virtualizado)
@@ -17,6 +17,6 @@ Luego agregar el archivo `.vdi` en el dialogo que se nos presenta:
 
 ![](./media/image02.png)
 
-Una vez agregado, asegurarse que la casilla para la importacion de los drivers NO este seleccionada:
+Una vez agregado, asegurarse que la casilla para la importar los drivers NO este seleccionada:
 
 ![](./media/image03.png)
